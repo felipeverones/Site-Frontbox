@@ -1,0 +1,433 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box; /* faz com que o padding e o border desconte do tamanho do conteúdo ao invés de somar além do tamanho do conteúdo principal */
+	/* ou seja, a largura e altura do elemento passam a considerar os valores de padding e border também */
+}
+
+/**********************************/
+/* 0. Variáveis
+/* 1. Container
+/* 2. Menu
+/* 3. Header
+/* 4. Quem somos
+/* 5. Nossos cursos
+/* 6. Planos
+/* 7. Vantagens
+/* 8. Newsletter
+/* 9. Footer
+/**********************************/
+
+/**********************************/
+/* 0. Variáveis
+/**********************************/
+:root{ /* representa o nível mais alto de um documento html, é idêntica ao seletor <html>, porém com uma especificidade mais alta */
+
+	--ff-primary: "Nunito", Helvetica, Arial, sans-serif;
+
+	--clr-green-dark: #049A40;
+	--clr-green-light: #0BF96A;
+	--clr-pink-dark: #E10BF9;
+	--clr-pink-light: #F3A0FD;
+	--clr-white: #f5f5f5;
+}
+
+
+/**********************************/
+/* 1. Estilos gerais
+/**********************************/
+
+html{
+	scroll-behavior: smooth;
+}
+
+
+body{
+	background-color: var(--clr-white);
+	font-family: var(--ff-primary);  /* pra isso que servem as variáveis */
+}
+
+a,
+a:hover, /* quando passa o mouse em cima */
+a:active, /* quando é clicado */
+a:link, /* link normal */
+a:visited /* link que já foi clicado alguma vez */
+{
+	text-decoration: none;
+	color: black;
+}
+
+hr{
+	border: none;
+	background-color: var(--clr-pink-dark);
+	height: 2px;
+	width: 140px;
+	margin: 20px auto;
+}
+
+p{
+	line-height: 21.82px;
+	padding: 0 10px;
+}
+
+.section__titulo{ /* coloquei aqui pq vai ser usado em todos os section do projeto */
+	text-align: center;
+	font-size: 3rem;
+	margin-bottom: 10px;
+}
+
+img { 
+	display: block;
+	max-width: 100%;  /* tornamos a img responsiva, podendo diminuir */
+}
+
+
+/**********************************/
+/* 2. Menu
+/**********************************/
+
+.menu-bg{
+	background-color: var(--clr-green-light);
+}
+
+.menu {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	max-width: 960px;
+	margin: 0 auto; /* auto é pra distribuir automaticamente a margem restante igualmente nos dois lados */
+	flex-wrap: wrap; /* permite que os itens quebrem e fiquem embaixo do outro quando diminuir a tela*/
+}
+
+.menu__logo{
+	margin: 10px;
+}
+
+.nav__list{
+	display: flex; /* deixa tudo lado a lado */
+	flex-wrap: wrap;
+}
+
+.nav__link{
+	padding: 20px 10px; /* 20px superior e inferior, 10px laterais */
+}
+
+/**********************************/
+/* 3. Header
+/**********************************/
+
+.intro{
+	font-weight: bold;
+	font-size: 3rem;
+	text-align: center;
+	margin: 0 auto;
+	padding: 25px 0;
+}
+
+
+/**********************************/
+/* 4. Quem somos
+/**********************************/
+
+.somos{
+	max-width: 960px;
+	margin: 0 auto;
+}
+
+.somos-c{ 
+	display: flex; /* elementos ficam lado a lado */ /* define um flex-container */
+	flex-wrap: wrap; /* permite que fique um embaixo do outro */
+	align-items: center;
+}
+
+
+/* usaremos essa propriedade flex para deixar a imagem lado a lado com o texto */
+.somos-c__texto{
+	flex: 6 1 160px; 
+	/* versão abreviada de flex-grow, flex-shrink e flex-basis, nessa ordem */
+	/* flex-grow diz que o somos-c__texto deve ocupar um espaço 6x maior que os outros flex itens */
+	/* flex-shrink 1 permite que o item reduza seu tamanho para caber no flex-container */
+	/* flex-basis diz que o tamanho inicial desse elemento é 160px */
+}
+
+.somos-c__img{
+	flex: 1 1 350px;
+}
+
+
+/**********************************/
+/* 5. Nossos cursos
+/**********************************/
+
+.cursos{
+	max-width: 960px;
+	margin: 0 auto;
+}
+
+.cursos-c{
+	display: flex;
+	flex-wrap: wrap; /* define se os itens flexíveis são forçados a ficarem na mesma linha ou se podem ser quebradas em varias linhas. Se o argumento for valido, ele define a direção em que as linhas são empilhadas. */
+	justify-content: center; /* alinha os elementos */
+}
+
+.curso{
+	width: 280px;
+	margin: 0 20px;
+}
+
+.curso__titulo{
+	font-size: 1.5rem;
+	text-align: center;
+	margin: 10px 0 5px 0;
+}
+
+/**********************************/
+/* 6. Planos
+/**********************************/
+
+.planos{
+	background-color: var(--clr-pink-light);
+}
+
+.planos-c{
+	max-width: 960px;
+	margin: 0 auto;
+	display: flex;
+	flex-wrap: wrap; /* permite que os flex items quebrem um debaixo do outro */
+	justify-content: center;
+	align-items: flex-end; /* todos os meus filhos do flex container alinhados pela base */
+}
+
+.plano{
+	background-color: var(--clr-pink-dark);
+	width: 290px;
+	margin: 10px;
+	border: 2px solid var(--clr-green-dark);
+	border-radius: 8px;
+}
+
+.plano:hover{
+	transform: scale(1.1);
+	transition: 1s;
+}
+
+.plano__titulo{
+	font-size: 3rem; /* 1rem = 16px (tamanho padrão da fonte nos navegadores); 3rem = 48px */
+	font-weight: bold;
+	text-align: center;
+	margin: 10px auto;
+}
+
+.plano__preco{
+	font-size: 3rem;
+	display: block;
+	text-align: center;
+	font-weight: bold;
+}
+
+.plano__preco sup{
+	position: relative;
+	font-size: 1.5rem;
+	top: -20px;
+}
+
+.plano__divisor{
+	background-color: var(--clr-green-light);
+	width: 20px;
+	margin: 5px auto;
+}
+
+.plano-lista{
+	max-width: 195px;
+	margin: 0 auto;
+}
+
+.plano-lista__item{
+	margin: 10px 0;
+	font-style: italic;
+	display: flex;
+	align-items: center;
+}
+
+.plano-lista__item::before{ /* insere antes elemento que não está no html */
+	content: "";
+	display: block;
+	width: 5px;
+	height: 5px;
+	background-color: var(--clr-green-light);
+	border-radius: 5px;
+	margin-right: 5px;
+}
+
+.plano__btn-comprar{
+	background-color: var(--clr-green-light);
+	display: block;
+	max-width: 180px;
+	font-size: 2rem;
+	font-weight: bold;
+	margin: 15px auto;
+	padding: 10px;
+	text-align: center;
+	text-transform: uppercase;
+	border: 2px solid var(--clr-green-light);
+	border-radius: 5px;
+}
+
+.plano:last-child{
+	background-color: var(--clr-green-light);
+}
+
+.plano:last-child, .plano:last-child .plano__btn-comprar{
+	border: 2px solid var(--clr-pink-dark);
+}
+
+.plano:last-child .plano__btn-comprar{
+	background-color: var(--clr-pink-dark);
+}
+
+.plano:last-child .plano-lista__item::before, .plano:last-child .plano__divisor{
+	background: var(--clr-pink-dark);
+}
+
+/* media query */
+
+@media (max-width: 800px){
+	.plano:nth-child(3){ /* pega o item Ultra */
+		order: -2;
+	}
+	.plano:nth-child(2){ /* pega o premium, ele se guia pela ordem do html */
+		order: -1;
+	}
+}
+
+
+/**********************************/
+/* 7. Vantagens
+/**********************************/
+
+.vantagens{
+	max-width: 960px;
+	margin: 0 auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.vantagem{
+	max-width: 240px;
+	margin: 10px;
+}
+
+.vantagem__titulo{
+	font-size: 1.7rem;
+	margin-bottom: 5px;
+	margin-left: 10px;
+}
+
+.vantagem__titulo::before{
+	content: "";
+	display: inline-block;
+	width: 10px;
+	height: 25px;
+	margin-right: 5px;
+}
+
+.vantagem:nth-of-type(3n+1) .vantagem__titulo::before {
+	background: var(--clr-green-light);
+}
+
+.vantagem:nth-of-type(3n+2) .vantagem__titulo::before {
+	background: var(--clr-pink-dark);
+}
+
+.vantagem:nth-of-type(3n+3) .vantagem__titulo::before {
+	background: var(--clr-green-dark);
+}
+
+@media (max-width: 800px){
+	.vantagem {
+		max-width: 220px;
+	}
+}
+
+/**********************************/
+/* 8. Newsletter
+/**********************************/
+
+.newsletter{
+	background-color: var(--clr-green-light);
+}
+
+.newsletter-c{
+	max-width: 960px;
+	margin: 0 auto;
+	padding: 50px 0;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.newsletter-info{
+	flex: 1 1 260px;
+	padding-left: 10px;
+}
+
+.newsletter-info__titulo{
+	font-size: 2.62rem;
+	font-weight: bold
+}
+
+.newsletter-info__descricao{
+	font-style: italic;
+}
+
+.newsletter-form {
+	flex: 2 1 260px;   /* 2 pra 1 com newsletter-info */
+	display: flex;
+	flex-wrap: wrap;
+}
+
+
+.newsletter-form__input{
+	flex: 3 1 260px;		 /* 3 pra 1 com o botão */
+	font-size: 1.25rem;
+	width: 325px;
+	color: black;
+	font-style: italic;
+	font-family: var(--ff-primary);
+	border: 10px solid var(--clr-pink-dark);
+	padding: 10px;
+	margin: 0;
+	border-radius: 0px;
+}
+
+.newsletter-form__submit{
+	flex: 1 1 260px;
+	width: 192px;
+	font-family: var(--ff-primary);
+	font-size: 2.25rem;
+	font-weight: bold;
+	text-transform: uppercase;
+	background: var(--clr-pink-dark);
+	color: black;
+	cursor: pointer;
+	border: none;
+	padding: 15px;
+}
+
+
+/**********************************/
+/* 9. Footer
+/**********************************/
+
+.footer{
+	background-color: var(--clr-pink-light);
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	padding: 55px calc((100% - 960px) /2);
+}
+
+.footer__copyright, .footer__logo {
+	padding-left: 10px;
+	padding-right: 10px;
+}
