@@ -208,7 +208,7 @@ img {
 
 .plano:hover{
 	transform: scale(1.1);
-	transition: 1s;
+	transition: 0.9s;
 }
 
 .plano__titulo{
@@ -271,6 +271,7 @@ img {
 	text-transform: uppercase;
 	border: 2px solid var(--clr-green-light);
 	border-radius: 5px;
+	box-shadow: 5px 5px 10px #000000; /* eixo x, eixo y, transição de blur e cor */
 }
 
 .plano:last-child{
